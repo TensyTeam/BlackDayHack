@@ -1,0 +1,36 @@
+contract healthhistory is dpass {
+    
+    mapping (uint256 => string[]) entityToHistory;
+    mapping (uint256 => address[]) entityToHistoryAccessHolders;
+    
+    function createNewHistory() public {
+        
+        entityToHistoryAccessHolders[ownerToEntity[msg.sender]].push(msg.sender);
+        
+    }
+    
+    function recordHistory(string memory _newNote) public {
+        
+        entityToHistory[ownerToEntity[msg.sender]].push(_newNote);
+        
+    }
+    
+    function giveAccessToHistory(address _accessRecipient) public {
+        
+        entityToHistoryAccessHolders[ownerToEntity[msg.sender]].push(_accessRecipient);
+        
+    }
+    
+    function getHistory(uint256 _noteId, uint256 _id) public view returns(string memory) {
+        
+        for (uint i = 0; i < entityToHistoryAccessHolders[_id].length; i++) {
+            if (entityToHistoryAccessHolders[_id][i] == msg.sender) {
+                return entityToHistory[_id][_noteId];
+            } else {
+                continue;
+            }
+        }
+        
+    }
+    
+}
