@@ -7,8 +7,9 @@ contract dpass {
         string firstName;
         string lastName;
         string middleName;
-        uint256 dateOfBirth;
+        string dateOfBirth;
         string citizenship;
+        string passport;
         
     }
     
@@ -22,11 +23,12 @@ contract dpass {
     mapping (uint256 => address[]) entityToMiddleNameAccessHolders;
     mapping (uint256 => address[]) entityToDateOfBirthAccessHolders;
     mapping (uint256 => address[]) entityToCitizenshipAccessHolders;
-    
-    function registerNewEntity(string memory _firstName, string memory _lastName, string memory _middleName, uint256 _dateOfBirth, string memory _citizenship) public {
+    mapping (uint256 => address[]) entityToPassportAccessHolders;
+     
+    function registerNewEntity(string memory _firstName, string memory _lastName, string memory _middleName, string memory _dateOfBirth, string memory _citizenship, string memory _passport) public {
         
         
-        uint256 id = entities.push(Entity(_firstName, _lastName, _middleName, _dateOfBirth, _citizenship)) - 1;
+        uint256 id = entities.push(Entity(_firstName, _lastName, _middleName, _dateOfBirth, _citizenship, _passport)) - 1;
         entityToOwner[id] = msg.sender;
         ownerToEntity[msg.sender] = id;
 
@@ -35,6 +37,7 @@ contract dpass {
         entityToMiddleNameAccessHolders[id].push(msg.sender);
         entityToDateOfBirthAccessHolders[id].push(msg.sender);
         entityToCitizenshipAccessHolders[id].push(msg.sender);
+        entityToPassportAccessHolders[id].push(msg.sender);
     
     }
 
@@ -65,6 +68,12 @@ contract dpass {
     function giveCitizenshipAccess(address _accessRecipient) public {
         
         entityToCitizenshipAccessHolders[ownerToEntity[msg.sender]].push(_accessRecipient);    
+        
+    }
+    
+    function givePassportAccess(address _accessRecipient) public {
+        
+        entityToPassportAccessHolders[ownerToEntity[msg.sender]].push(_accessRecipient);    
         
     }
     
@@ -104,7 +113,7 @@ contract dpass {
         
     }
     
-    function getDateOfBirth(uint256 _id) public view returns(uint256) {
+    function getDateOfBirth(uint256 _id) public view returns(string memory) {
         
         for (uint i = 0; i < entityToDateOfBirthAccessHolders[_id].length; i++) {
             if (entityToDateOfBirthAccessHolders[_id][i] == msg.sender) {
@@ -127,4 +136,17 @@ contract dpass {
         }
         
     }
+    
+    function getPassport(uint256 _id) public view returns(string memory) {
+        
+        for (uint i = 0; i < entityToPassportAccessHolders[_id].length; i++) {
+            if (entityToPassportAccessHolders[_id][i] == msg.sender) {
+                return entities[_id].passport;
+            } else {
+                continue;
+            }
+        }
+        
+    }
+    
 }
