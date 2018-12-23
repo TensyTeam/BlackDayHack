@@ -54,6 +54,38 @@ function giveAccessToHistory(_accessRecipient) {
 
 }
 
+function getHistory(_entityId) {
+
+    var history = [];
+    var lastResult = "last result";
+    var _noteId = 0;
+
+    while(lastResult !== 'undefined') {
+        contract.getNote.call(_entityId, _noteId, (error, result) => {
+            if(error) {
+                return console.log(error);
+            }
+            history.push(result);
+            lastResult = result;
+            _noteId++;
+        });
+    }
+    
+    return history;
+
+}
+
+function getNote(_entityId, _noteId) {
+
+        contract.getNote.call(_entityId, _noteId, (error, result) => {
+            if(error) {
+                return console.log(error);
+            }
+            return result;
+        });
+
+}
+
 
 
 function getHistory(_entityId) {
