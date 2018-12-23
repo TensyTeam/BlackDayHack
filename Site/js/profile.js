@@ -1,15 +1,28 @@
+function giveFirstNameAccess(_accessRecipient) {
+
+    contract.giveFirstNameAccess.sendTransaction(
+        _accessRecipient,
+        {gasPrice: web3.toWei(8.1, 'Gwei'), gas: 3000000},
+        (error, result) => {
+            if(error) {
+                return console.log(error);
+            }
+            console.log("txhash: " + result);
+        }
+    )
+
+}
+
 class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {DoctorPublicKey: ''};
         this.onDoctorPublicKeyChange = this.onDoctorPublicKeyChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
-        this.state = { items: [], text: '' };
-        //this.state = {FirstName: '', SecondName: '', MiddleName: '', Date: '', Nationality: '', PassportNumber: ''};
-    }
+        this.state = { items: [], text: '' };}
 
     onSubmit(event) {
+        giveFirstNameAccess(this.state.DoctorPublicKey);
         event.preventDefault();
         if (!this.state.text.length) {
             return;
@@ -25,19 +38,12 @@ class Profile extends React.Component {
         alert(`This doctor ${this.state.DoctorPublicKey} has access to your medical card`)
     }
 
-    onDoctorPublicKeyChange(event){
+    onDoctorPublicKeyChange(event) {
         this.setState({DoctorPublicKey: event.target.value});
         this.setState({ text: event.target.value });
     }
 
     render() {
-        // var user_data = []
-        // $.getJSON('/js/user.json', function(data) {
-        //     $.each(data, function(key, val) {
-        //         user_data[key] = data[key]
-        //     });
-        // });
-        // this.state = {FirstName: user_data["FirstName"], SecondName: user_data['SecondName'], MiddleName: user_data['MiddleName'], Date: user_data['Date'], Nationality: user_data['Nationality'], PassportNumber: user_data['PassportNumber']};
         return (
             <div className="containers has-background-dark">
                 <div className="column is-8 is-offset-2">
