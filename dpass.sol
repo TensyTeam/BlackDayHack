@@ -16,7 +16,7 @@ contract dpass {
     Entity[] entities;
     
     mapping (uint256 => address) entityToOwner;
-    mapping (address => uint256) public ownerToEntity;
+    mapping (address => uint256) ownerToEntity;
     
     mapping (uint256 => address[]) entityToFirstNameAccessHolders;
     mapping (uint256 => address[]) entityToLastNameAccessHolders;
@@ -41,11 +41,11 @@ contract dpass {
     
     }
 
-    function giveFirstNameAccess(address _accessRecipient) public {
-        
-        entityToFirstNameAccessHolders[ownerToEntity[msg.sender]].push(_accessRecipient);
-        
-    }
+        function giveFirstNameAccess(address _accessRecipient) public {
+            
+            entityToFirstNameAccessHolders[ownerToEntity[msg.sender]].push(_accessRecipient);
+            
+        }
     
     function giveLastNameAccess(address _accessRecipient) public {
         
@@ -146,6 +146,12 @@ contract dpass {
                 continue;
             }
         }
+        
+    }
+    
+    function getOwnerId(address _ownerAddress) public view returns(uint256) {
+        
+        return ownerToEntity[_ownerAddress];
         
     }
     
