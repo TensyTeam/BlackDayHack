@@ -156,3 +156,12 @@ function getPassport(_entityId) {
         return result;
     });
 }
+
+function getOwnerId(_ownerAddress) {
+    contract.getOwnerId.call(_ownerAddress, (error, result) => {
+        if(error) {
+            return console.log(error);
+        }
+        return result.c[0];
+    });
+}
