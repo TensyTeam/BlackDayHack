@@ -1,3 +1,12 @@
+function getFirstName(_entityId) {
+    contract.getFirstName.call(_entityId, (error, result) => {
+        if(error) {
+            return console.log(error);
+        }
+        alert('Имя пациента: ' + result);
+    });
+}
+
 class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -8,6 +17,7 @@ class Profile extends React.Component {
     }
 
     onSubmit(event) {
+        getFirstName(4);
         event.preventDefault();
         if (!this.state.text.length) {
             return;
@@ -41,7 +51,7 @@ class Profile extends React.Component {
                                 <label className="label">83920657</label>
                             </div>
                             <div className="field">
-                                <a href="#">
+                                <a href="/watch/83920657.html">
                                     watch
                                 </a>
                                 <a href="#">
@@ -55,7 +65,7 @@ class Profile extends React.Component {
                                 <label className="label">76382930</label>
                             </div>
                             <div className="field">
-                                <a href="#">
+                                <a href="/watch/76382930.html">
                                     watch
                                 </a>
                                 <a href="#">
@@ -69,7 +79,7 @@ class Profile extends React.Component {
                                 <label className="label">12088949</label>
                             </div>
                             <div className="field">
-                                <a href="#">
+                                <a href="/watch/12088949.html">
                                     watch
                                 </a>
                                 <a href="#">
@@ -83,7 +93,7 @@ class Profile extends React.Component {
                                 <label className="label">23409032</label>
                             </div>
                             <div className="field">
-                                <a href="#">
+                                <a href="/watch/23409032.html">
                                     watch
                                 </a>
                                 <a href="#">
@@ -105,7 +115,7 @@ class Profile extends React.Component {
                                     <input className="input"
                                            type="text"
                                            name="PersonPublicKey"
-                                           placeholder="Person public key"
+                                           placeholder="Person id"
                                            value={this.state.PersonPublicKey}
                                            onChange={this.onPersonPublicKeyChange}/>
                                     <span className="icon is-small is-left">
@@ -134,16 +144,14 @@ class TodoList extends React.Component {
                 {this.props.items.map(item => (
                 <div className="field is-horizontal">
                     <i className="fas fa-user-injured"></i>
-                    <div className="field-label is-normal">
+                    <div className="field-label is-normal width-50">
                         <label className="label">
                             {item.text}
                         </label>
                     </div>
 
                     <div className="field" key={item.id}>
-                        <a href="#">
-                            in waiting
-                        </a>
+                        in waiting
                         <a href="#">
                             <i className="far fa-times-circle"></i>
                         </a>
