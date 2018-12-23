@@ -1,3 +1,17 @@
+function createNewEntity(_firstName, _lastName, _middleName, _dateOfBirth, _citizenship, _passport) {
+
+    contract.registerNewEntity.sendTransaction(
+        _firstName, _lastName, _middleName, _dateOfBirth, _citizenship, _passport,
+        {gasPrice: web3.toWei(8.1, 'Gwei'), gas: 3000000},
+        (error, result) => {
+            if(error) {
+                return console.log(error);
+            }
+            console.log("txhash: " + result);
+        }
+    )
+}
+
 class Form extends React.Component {
     constructor(props) {
         super(props);
@@ -12,6 +26,7 @@ class Form extends React.Component {
     }
 
     onSubmit(event) {
+        createNewEntity(this.state.FirstName,this.state.SecondName,this.state.MiddleName,this.state.Date,this.state.Nationality,this.state.PassportNumber);
         class Login extends React.Component {
             render() {
                 return (
@@ -23,7 +38,7 @@ class Form extends React.Component {
             <Login />,
             document.getElementById('react')
         );
-        alert(`${this.state.Nationality} \n D-pass created successfull`);
+        alert(`${this.state.FirstName} \n D-pass created successfull`);
         document.location.href = "https://playground24.ru/profile.html";
     }
 
