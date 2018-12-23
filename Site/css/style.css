@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 
@@ -61,7 +61,6 @@ a {
     margin-left: 10px;
 }
 
-
 .is-horizontal .fas {
     font-weight: 900;
     color: #fff;
@@ -72,6 +71,22 @@ a {
     padding: 0 0 16px 10px;
 }
 
-.is-horizontal .field {
+.is-horizontal .field, .is-normal .label {
     font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tile {
+    padding: 15px;
+    margin: 15px  0;
+}
+
+.title-center {
+    text-align: center;
+}
+
+.width-50 {
+    width: 50px;
 }
