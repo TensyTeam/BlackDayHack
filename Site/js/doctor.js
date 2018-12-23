@@ -3,7 +3,7 @@ function getFirstName(_entityId) {
         if(error) {
             return console.log(error);
         }
-        alert('Имя пациента: ' + result);
+        alert('Successfully\nPatient first name : ' + result);
     });
 }
 
@@ -30,7 +30,6 @@ class Profile extends React.Component {
             items: state.items.concat(newItem),
             text: ''
         }));
-        alert(`Request is sent`)
     }
 
     onPersonPublicKeyChange(event){
