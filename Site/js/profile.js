@@ -56,7 +56,7 @@ class Profile extends React.Component {
                                 <label className="label">First name</label>
                             </div>
                             <div className="field">
-                                Mike
+                                Михаил
                             </div>
                             <div className="field">
                                 <a className="fas-icon">
@@ -69,7 +69,7 @@ class Profile extends React.Component {
                                 <label className="label">Second name</label>
                             </div>
                             <div className="field">
-                                Petrov
+                                Петров
                             </div>
                             <div className="field">
                                 <a className="fas-icon">
@@ -82,7 +82,7 @@ class Profile extends React.Component {
                                 <label className="label">Middle name</label>
                             </div>
                             <div className="field">
-                                Ivanovich
+                                1
                             </div>
                             <div className="field">
                                 <a className="fas-icon">
@@ -108,7 +108,7 @@ class Profile extends React.Component {
                                 <label className="label">Nationality</label>
                             </div>
                             <div className="field">
-                                Russia
+                                Россия
                             </div>
                             <div className="field">
                                 <a className="fas-icon">
@@ -121,7 +121,7 @@ class Profile extends React.Component {
                                 <label className="label">Passport number</label>
                             </div>
                             <div className="field">
-                                3200 228822
+                                100
                             </div>
                             <div className="field">
                                 <a className="fas-icon">
@@ -140,7 +140,7 @@ class Profile extends React.Component {
                                 <label className="label">Dentist</label>
                             </div>
                             <div className="field">
-                                79730764
+                                0xF8720Eb6aD4a530cccb696043a0D10831e2ff60e
                                 <a href="#">
                                     <i className="far fa-times-circle"></i>
                                 </a>
@@ -152,7 +152,7 @@ class Profile extends React.Component {
                                 <label className="label">Surgeon</label>
                             </div>
                             <div className="field">
-                                56716820
+                                0x3a0D10831e2ff60eF8720Eb6aD4a530cccb69604
                                 <a href="#">
                                     <i className="far fa-times-circle"></i>
                                 </a>
@@ -164,7 +164,7 @@ class Profile extends React.Component {
                                 <label className="label">Therapist</label>
                             </div>
                             <div className="field">
-                                20422563
+                                0x52ff60eF8720Eb6aD4a530ca0D10831eccb69604
                                 <a href="#">
                                     <i className="far fa-times-circle"></i>
                                 </a>
