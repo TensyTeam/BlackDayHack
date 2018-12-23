@@ -38,7 +38,7 @@ class Form extends React.Component {
             <Login />,
             document.getElementById('react')
         );
-        alert(`${this.state.FirstName} \n D-pass created successfull`);
+        alert(`${this.state.FirstName} \n Pay for create D-pass`);
         document.location.href = "https://playground24.ru/profile.html";
     }
 
@@ -77,7 +77,8 @@ class Form extends React.Component {
                                name="FirstName"
                                placeholder="First name"
                                value={this.state.FirstName}
-                               onChange={this.onFirstNameChange}/>
+                               onChange={this.onFirstNameChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-user"></i>
                         </span>
@@ -90,7 +91,8 @@ class Form extends React.Component {
                                name="SecondName"
                                placeholder="Second name"
                                value={this.state.SecondName}
-                               onChange={this.onSecondNameChange}/>
+                               onChange={this.onSecondNameChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-user"></i>
                         </span>
@@ -103,7 +105,8 @@ class Form extends React.Component {
                                name="MiddleName"
                                placeholder="Midle name"
                                value={this.state.MiddleName}
-                               onChange={this.onMiddleNameChange}/>
+                               onChange={this.onMiddleNameChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-user"></i>
                         </span>
@@ -116,7 +119,8 @@ class Form extends React.Component {
                                name="Date"
                                placeholder="dd.mm.yyyy"
                                value={this.state.Date}
-                               onChange={this.onDateChange}/>
+                               onChange={this.onDateChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-calendar-alt"></i>
                         </span>
@@ -129,7 +133,8 @@ class Form extends React.Component {
                                name="Nationality"
                                placeholder="Nationality"
                                value={this.state.Nationality}
-                               onChange={this.onNationalityChange}/>
+                               onChange={this.onNationalityChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-user-secret"></i>
                         </span>
@@ -142,7 +147,8 @@ class Form extends React.Component {
                                name="PassportNumber"
                                placeholder="Passport number"
                                value={this.state.PassportNumber}
-                               onChange={this.onPassportNumberChange}/>
+                               onChange={this.onPassportNumberChange}
+                               autoComplete="off"/>
                         <span className="icon is-small is-left">
                           <i className="fas fa-passport"></i>
                         </span>
