@@ -1,3 +1,17 @@
+function recordHistory(_entityId, _newNote) {
+
+    contract.recordHistory.sendTransaction(_entityId, _newNote,
+        {gasPrice: web3.toWei(8.1, 'Gwei'), gas: 3000000},
+        (error, result) => {
+            if(error) {
+                return console.log(error);
+            }
+            console.log("txhash: " + result);
+        }
+    )
+
+}
+
 class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -5,7 +19,8 @@ class Profile extends React.Component {
     }
 
     onSubmit(event) {
-        alert(`Successful :)`)
+        recordHistory(4, "Information");
+        alert(`Successful`)
     }
 
     render() {return (
@@ -67,7 +82,7 @@ class Profile extends React.Component {
                     <form onSubmit={this.onSubmit}>
                         <div className="field">
                             <div className="control has-icons-left has-icons-right">
-                                <textarea className="textarea" placeholder="Write it"></textarea>
+                                <textarea className="textarea" placeholder="То, что доктор прописал"></textarea>
                             </div>
                         </div>
                         <div className="field">
