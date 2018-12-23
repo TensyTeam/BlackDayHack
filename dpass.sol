@@ -16,7 +16,7 @@ contract dpass {
     Entity[] entities;
     
     mapping (uint256 => address) entityToOwner;
-    mapping (address => uint256) ownerToEntity;
+    mapping (address => uint256) public ownerToEntity;
     
     mapping (uint256 => address[]) entityToFirstNameAccessHolders;
     mapping (uint256 => address[]) entityToLastNameAccessHolders;
